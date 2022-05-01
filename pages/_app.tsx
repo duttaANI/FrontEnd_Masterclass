@@ -35,16 +35,16 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       {/* <StoreProvider store={store}> */}
-        {Component.authPage ? (
+      {Component.authPage ? (
+        <Component {...pageProps} />
+      ) : (
+        <PlayerLayout>
           <Component {...pageProps} />
-        ) : (
-          <PlayerLayout>
-            <Component {...pageProps} />
-          </PlayerLayout>
-        )}
+        </PlayerLayout>
+      )}
       {/* </StoreProvider> */}
     </ChakraProvider>
-  )
+  );
 };
 
 export default MyApp;
