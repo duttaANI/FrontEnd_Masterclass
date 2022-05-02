@@ -1,25 +1,25 @@
-import GradientLayout from '../../components/gradientLayout'
-import SongTable from '../../components/songsTable'
-import { validateToken } from '../../lib/auth'
-import prisma from '../../lib/prisma'
+import GradientLayout from "../../components/gradientLayout";
+import SongTable from "../../components/songsTable";
+import { validateToken } from "../../lib/auth";
+import prisma from "../../lib/prisma";
 
 const getBGColor = (id) => {
   const colors = [
-    'red',
-    'green',
-    'blue',
-    'orange',
-    'purple',
-    'gray',
-    'teal',
-    'yellow',
-  ]
+    "red",
+    "green",
+    "blue",
+    "orange",
+    "purple",
+    "gray",
+    "teal",
+    "yellow",
+  ];
 
-  return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)]
-}
+  return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)];
+};
 
 const Playlist = ({ playlist }) => {
-  const color = getBGColor(playlist.id)
+  const color = getBGColor(playlist.id);
 
   return (
     <GradientLayout
@@ -32,21 +32,21 @@ const Playlist = ({ playlist }) => {
     >
       <SongTable songs={playlist.songs} />
     </GradientLayout>
-  )
-}
+  );
+};
 
 export const getServerSideProps = async ({ query, req }) => {
-  let user
+  let user;
 
   try {
-    user = validateToken(req.cookies.TRAX_ACCESS_TOKEN)
+    user = validateToken(req.cookies.TRAX_ACCESS_TOKEN);
   } catch (e) {
     return {
       redirect: {
         permanent: false,
-        destination: '/signin',
+        destination: "/signin",
       },
-    }
+    };
   }
 
   const [playlist] = await prisma.playlist.findMany({
@@ -66,10 +66,10 @@ export const getServerSideProps = async ({ query, req }) => {
         },
       },
     },
-  })
+  });
 
   return {
     props: { playlist },
-  }
-}
-export default Playlist
+  };
+};
+export default Playlist;
