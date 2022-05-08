@@ -1,3 +1,30 @@
+# Commands used -
+
+❯ npx create-next-app app   
+
+❯ npx prisma init 
+
+❯ npx prisma db push
+
+❯ npx prisma migrate dev 
+
+❯ npx prisma db push 
+
+❯ npx prisma generate   
+
+❯ npx prisma db seed   
+
+❯ npx prisma studio                                                                                                                       ─╯
+
+❯ npx prisma migrate --dev 
+
+❯ npx prisma migrate reset
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
