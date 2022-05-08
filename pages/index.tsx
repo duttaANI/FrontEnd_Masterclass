@@ -14,7 +14,7 @@ const Home = ({ artists }) => {
       subtitle="profile"
       title={`${user?.firstName} ${user?.lastName}`}
       description={`${user?.playlistsCount} public playlists`}
-      image="https://dl.dropboxusercontent.com/s/bgiv0ssz3xpotz9/peep.png?dl=0"
+      image="/aniMedium.png"
     >
       <Box color="white" paddingX="40px">
         <Box marginBottom="40px">
